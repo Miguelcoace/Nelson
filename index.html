@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ResidentEvil</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden; /* Para evitar barras de desplazamiento */
+            color: white; /* Color de texto predeterminado */
+            background-image: url('fondo.jpg'); /* Imagen de fondo inicial */
+            background-size: cover; /* Ajusta el tamaño del fondo para cubrir todo el cuerpo */
+            background-position: center; /* Posición del fondo centrada */
+            transition: background-image 0.5s; /* Transición suave al cambiar la imagen de fondo */
+            position: relative; /* Para permitir la superposición de elementos */
+        }
+
+        .audio-container {
+            text-align: center;
+            color: white; /* Añade color para que el texto sea legible sobre la imagen */
+        }
+
+        /* Estilo para ocultar el texto por defecto */
+        #texto {
+            display: none;
+            font-size: 12vw; /* Tamaño de fuente más grande ajustado para dispositivos móviles */
+            color: rgb(255, 0, 0); /* Color rojo */
+            margin-top: 10vh;
+            position: absolute; /* Posición absoluta para superponer sobre la imagen de fondo */
+            top: 40%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 10; /* Colocar el texto encima del fondo y el gif */
+        }
+
+        /* Cambiar color del texto en h1 a negro */
+        h1 {
+            color: rgb(238, 255, 0);
+            font-size: 50px;
+        }
+
+        /* Estilos para el botón personalizado */
+        .custom-button {
+            background-color: #ff0000;
+            font-size: 30px;
+            padding: 3vw 5vw; /* Ajuste del padding del botón */
+            color: rgb(8, 0, 0);
+            border: none;
+            cursor: pointer;
+            position: relative; /* Para establecer z-index */
+            z-index: 10; /* Colocar el botón encima del fondo y el gif */
+        }
+
+        /* Estilos para el gif de fondo */
+        .gif-background {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('ha-ha-the-simpsons.gif');
+            background-size: cover;
+            background-position: center;
+            z-index: 5; /* Colocar el gif detrás del texto */
+        }
+    </style>
+</head>
+<body>
+
+<div class="audio-container">
+    <h1 id="titulo">Vale, toma ya los codigos del juego...</h1>
+
+    <!-- Botón personalizado para reproducir el audio -->
+    <button class="custom-button" onclick="reproducirAudio(this)">Resident Evil</button>
+
+    <p id="texto">Ha Ha</p>
+</div>
+
+<script>
+     function reproducirAudio(btn) {
+        var audio = new Audio('nelson-laugh.mp3'); // Crear un elemento de audio
+        audio.play(); // Reproducir el audio
+
+        var fondo = document.querySelector('body');
+        fondo.style.backgroundImage = "url('ha-ha-the-simpsons.gif')"; // Cambiar el fondo por el GIF cuando se reproduce el audio
+
+        var titulo = document.getElementById('titulo');
+        titulo.style.display = 'none'; // Ocultar el elemento h1 cuando se reproduce el audio
+
+        var texto = document.getElementById('texto');
+        texto.style.display = 'block'; // Mostrar el texto cuando se reproduce el audio
+
+        // Ocultar el botón al hacer clic
+        btn.style.display = 'none';
+    }
+</script>
+
+</body>
+</html>
