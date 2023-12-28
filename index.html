@@ -24,19 +24,6 @@
             color: white; /* Añade color para que el texto sea legible sobre la imagen */
         }
 
-        /* Estilo para ocultar el texto por defecto */
-        #texto {
-            display: none;
-            font-size: 12vw; /* Tamaño de fuente más grande ajustado para dispositivos móviles */
-            color: rgb(255, 0, 0); /* Color rojo */
-            margin-top: 10vh;
-            position: absolute; /* Posición absoluta para superponer sobre la imagen de fondo */
-            top: 40%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            z-index: 10; /* Colocar el texto encima del fondo y el gif */
-        }
-
         /* Cambiar color del texto en h1 a negro */
         h1 {
             color: rgb(238, 255, 0);
@@ -78,7 +65,6 @@
     <!-- Botón personalizado para reproducir el audio -->
     <button class="custom-button" onclick="reproducirAudio(this)">Resident Evil</button>
 
-    <p id="texto">Ha Ha</p>
 </div>
 
 <script>
@@ -91,9 +77,6 @@
 
         var titulo = document.getElementById('titulo');
         titulo.style.display = 'none'; // Ocultar el elemento h1 cuando se reproduce el audio
-
-        var texto = document.getElementById('texto');
-        texto.style.display = 'block'; // Mostrar el texto cuando se reproduce el audio
 
         // Ocultar el botón al hacer clic
         btn.style.display = 'none';
